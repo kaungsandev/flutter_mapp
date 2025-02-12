@@ -18,13 +18,15 @@ class HomePage extends StatelessWidget {
 
     return SingleChildScrollView(
       child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
           child: Column(
             children: [
+              SizedBox(height: 10.0),
               const HeroWidget(
                 title: "Home",
                 nextPage: CoursePage(),
               ),
+              SizedBox(height: 10.0),
               ...List.generate(
                   list.length,
                   (index) => ContainerWidget(

@@ -9,9 +9,8 @@ class ContainerWidget extends StatelessWidget {
   final String description;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      padding: const EdgeInsets.only(top: 10.0),
       child: Card(
         child: Padding(
           padding: EdgeInsets.all(20.0),
