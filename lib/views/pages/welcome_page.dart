@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/views/pages/login_page.dart';
+import 'package:flutter_application_2/views/pages/onboarding_page.dart';
 import 'package:lottie/lottie.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -15,7 +16,7 @@ class WelcomePage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Lottie.asset('assets/lotties/welcome.json', height: 400.0),
+                Lottie.asset('assets/lotties/logo.json', height: 400.0),
                 FittedBox(
                   child: Text(
                     'Flutter App',
@@ -32,6 +33,16 @@ class WelcomePage extends StatelessWidget {
                     onPressed: () {
                       Navigator.pushReplacement(context,
                           MaterialPageRoute(builder: (context) {
+                        return OnboardingPage();
+                      }));
+                    },
+                    style: FilledButton.styleFrom(
+                        minimumSize: Size(double.infinity, 40.0)),
+                    child: const Text('Get Started')),
+                TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacement(context,
+                          MaterialPageRoute(builder: (context) {
                         return const LoginPage(
                           title: 'Login',
                         );
@@ -39,19 +50,7 @@ class WelcomePage extends StatelessWidget {
                     },
                     style: FilledButton.styleFrom(
                         minimumSize: Size(double.infinity, 40.0)),
-                    child: const Text('Login')),
-                TextButton(
-                    onPressed: () {
-                      Navigator.pushReplacement(context,
-                          MaterialPageRoute(builder: (context) {
-                        return const LoginPage(
-                          title: 'Register',
-                        );
-                      }));
-                    },
-                    style: FilledButton.styleFrom(
-                        minimumSize: Size(double.infinity, 40.0)),
-                    child: const Text('Register'))
+                    child: const Text('Login'))
               ],
             ),
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/views/pages/welcome_page.dart';
 import 'package:flutter_application_2/views/widget_tree.dart';
-import 'package:flutter_application_2/views/widgets/hero_widget.dart';
+import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key, required this.title});
@@ -46,12 +46,7 @@ class _LoginPageState extends State<LoginPage> {
             padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
-                HeroWidget(
-                  title: widget.title,
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
+                Lottie.asset('assets/lotties/welcome.json', height: 400.0),
                 TextField(
                   controller: controllerEmail,
                   onEditingComplete: () {
@@ -84,7 +79,7 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       onLoginPressed();
                     },
-                    child: Text('Login')),
+                    child: Text(widget.title)),
                 SizedBox(
                   height: 50.0,
                 )
