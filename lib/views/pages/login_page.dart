@@ -27,6 +27,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
@@ -43,49 +45,51 @@ class _LoginPageState extends State<LoginPage> {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              children: [
-                Lottie.asset('assets/lotties/welcome.json', height: 400.0),
-                TextField(
-                  controller: controllerEmail,
-                  onEditingComplete: () {
-                    setState(() {});
-                  },
-                  decoration: InputDecoration(
-                    hintText: "Email",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15.0),
+              padding: const EdgeInsets.all(10.0),
+              child: FractionallySizedBox(
+                widthFactor: screenWidth > 600 ? 0.5 : 1.0,
+                child: Column(
+                  children: [
+                    Lottie.asset('assets/lotties/welcome.json', height: 400.0),
+                    TextField(
+                      controller: controllerEmail,
+                      onEditingComplete: () {
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                        hintText: "Email",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                SizedBox(height: 10.0),
-                TextField(
-                  controller: controllerPw,
-                  onEditingComplete: () {
-                    setState(() {});
-                  },
-                  decoration: InputDecoration(
-                    hintText: "Password",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(15.0),
+                    SizedBox(height: 10.0),
+                    TextField(
+                      controller: controllerPw,
+                      onEditingComplete: () {
+                        setState(() {});
+                      },
+                      decoration: InputDecoration(
+                        hintText: "Password",
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                      ),
                     ),
-                  ),
+                    SizedBox(height: 20.0),
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            minimumSize: Size(double.infinity, 40.0)),
+                        onPressed: () {
+                          onLoginPressed();
+                        },
+                        child: Text(widget.title)),
+                    SizedBox(
+                      height: 50.0,
+                    )
+                  ],
                 ),
-                SizedBox(height: 20.0),
-                ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: Size(double.infinity, 40.0)),
-                    onPressed: () {
-                      onLoginPressed();
-                    },
-                    child: Text(widget.title)),
-                SizedBox(
-                  height: 50.0,
-                )
-              ],
-            ),
-          ),
+              )),
         ),
       ),
     );
